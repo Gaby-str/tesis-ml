@@ -1,0 +1,4 @@
+numpy==2.3.2
+pandas==2.3.2
+fastapi[standard]==0.123.5
+aiofiles==25.1.0
