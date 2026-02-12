@@ -1,0 +1,40 @@
+{
+  "script_path": "GridSearchCV_AIN.py",
+  "function_name": "gridsearch_run",
+  "kwargs": {
+    "mlf_url": "file:///mnt/beegfs/home/friquelme/mlflow",
+    "experiment": "HPC-Regressor_f",
+    "data_path": "./dataset_final_masPTE.csv",
+    "models": {
+      "HistGradientBoostingRegressor": {
+        "tag": "",
+        "model_conf": {
+          "early_stopping": true
+        },
+        "name_log": "t_all_HistGradientBoostingRegressor"
+      }
+    },
+    "params_grid": {
+      "regressor__learning_rate": [0.01],
+      "regressor__max_depth": [2],
+      "regressor__min_samples_leaf": [5],
+      "regressor__max_leaf_nodes": [3]
+    },
+    "cols_group": {
+      "pca_cols": [],
+      "cols": [
+        "NRO_PARADAS",
+        "KM",
+        "AREA_TOTAL_SUM",
+        "PESO_TOTAL_SUM",
+        "PRECIO_TOTAL_SUM"
+      ],
+      "mean_cols": [
+      ],
+      "cat_cols": [
+        "TRANSPORTE",
+        "TIPO"
+      ]
+    }
+  }
+}

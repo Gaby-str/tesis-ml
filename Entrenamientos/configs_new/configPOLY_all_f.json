@@ -1,0 +1,39 @@
+{
+  "script_path": "GridSearchCV_AIN.py",
+  "function_name": "gridsearch_run",
+  "kwargs": {
+    "mlf_url": "file:///mnt/beegfs/home/friquelme/mlflow",
+    "experiment": "HPC-Regressor_f",
+    "data_path": "./dataset_final_masPTE.csv",
+    "models": {
+      "LinearR-poly": {
+        "tag": "",
+        "model_conf": {
+        },
+        "name_log": "all_LinearR-poly 3"
+      }
+    },
+    "params_grid": {
+        "regressor__poly__degree": [3]
+    },
+    "cols_group": {
+      "pca_cols": [],
+      "cols": [
+        "NRO_PARADAS",
+        "KM",
+        "AREA_TOTAL_SUM",
+        "PESO_TOTAL_SUM",
+        "PRECIO_TOTAL_SUM",
+        "EFICIENCIA_AREA"
+      ],
+      "mean_cols": [
+        "TRANSPORTE",
+        "DESTINO",
+        "PATENTE",
+        "TIPO",
+        "DIA_NUM"
+      ],
+      "cat_cols": []
+    }
+  }
+}
