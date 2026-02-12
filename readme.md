@@ -16,3 +16,14 @@ La **imagen Docker** es __frankrd1213/docker-model-service__ Esta entrega el ser
 * **/single_predict**: Para bajo volumen de solicitudes.
 * **/csv_predict**: Para un alto volumen de solicitudes. Recibe y entrega archivos csv con los datos.
 * **/reload_model_file**: Para reemplazar el actual modelo por uno actualizado, recibe modelos empaquetados en formato .pkl.
+
+### Experimentos
+---
+
+Los archivos utilizados para realizar los experimentos se encuentran en la carpeta __Experimentos__, en donde las líneas de ejecución de trabajos de __Slurm__ están en __init_script.sh__.
+
+__init_script.sh__ ejecuta un __Trabajo de Slurm__ con __script.sh__ por cada configuración (línea) especificada.
+
+Caja trabajo comienza con el parser __run.py__, quien lee, corrobora y entrega los atributos del experimento al executor principal (__GridSearchCV_AIN.py__).
+
+__GridSearchCV_AIN.py__ realiza todo el trabajo de procesamiento y GSCV del modelo seleccionado, generando métricas y resultados.

@@ -11,7 +11,7 @@
         "model_conf": {
           "early_stopping": true
         },
-        "name_log": "redu3_HistGradientBoostingRegressor"
+        "name_log": "redu2_HistGradientBoostingRegressor"
       }
     },
     "params_grid": {
@@ -31,6 +31,7 @@
       ],
       "mean_cols": [
         "TRANSPORTE",
+        "DESTINO",
         "TIPO"
       ],
       "cat_cols": [

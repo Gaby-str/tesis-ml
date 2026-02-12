@@ -55,18 +55,6 @@ def run_experiment(model_log, model, preprocessor, params, X_train, X_test, y_tr
             verbose=2)
 
         gs.fit(X_train, y_train)
-        """
-        # Acceder al mejor pipeline ajustado en GridSearchCV
-        best_pipeline = gs.best_estimator_
-        # Acceder al preprocesador dentro del pipeline
-        preprocessor = best_pipeline.named_steps['preprocessor']
-        # Acceder al pipeline PCA dentro del preprocesador
-        pca_pipeline = preprocessor.named_transformers_['pca']
-        # Acceder al objeto PCA en sí
-        pca_step = pca_pipeline.named_steps['pca']
-        explained_var = pca_step.explained_variance_ratio_
-        print("VARIANZAS PCA: ", explained_var)
-        """
 
         try:
             best_model = gs.best_estimator_
@@ -245,7 +233,6 @@ def gridsearch_run(**kwargs):
         ('pca', PCA(1))
     ])
 
-    # Definimos el encoder con target_type explícito
     te = Pipeline([
         ("target_enc", TargetEncoder(target_type="continuous", cv=3, smooth="auto", random_state=42)),
         ('scaler_after_te', RobustScaler())
@@ -256,7 +243,6 @@ def gridsearch_run(**kwargs):
     ])
 
     preprocessor = ColumnTransformer([
-        #aca añadir un mean_encoding
         ('pca', pca_pip, pca_cols),
         ('num', scaler_pipeline, scaler_cols),
         ('mean', te, mean_cols),
